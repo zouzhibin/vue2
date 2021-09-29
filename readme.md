@@ -12,3 +12,12 @@ npm install @babel/preset-env @babel/core rollup rollup-plugin-babel rollup-plug
 rollup-plugin-serve 启动一个静态服务
 cross-env 设置不同的环境变量
 ```
+
+
+## vue-template-compiler
+```
+let compiler = require('vue-template-compiler')
+const ast1 = compiler.compile('<div v-if="false"></div>')
+console.log(ast1.render)
+```
+

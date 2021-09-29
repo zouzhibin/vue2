@@ -57,6 +57,7 @@ const strats = []
 
 //合并hooks
 function mergeHook(parentVal,childVal){
+    // 如果儿子没有 直接用父亲的
     if(childVal){
         if(parentVal){
             return parentVal.concat(childVal)
@@ -86,6 +87,9 @@ strats.components = mergeAssets
 
 
 // 合并两个对象
+// 自定义策略
+// 1、如果父亲有的儿子也有 应该用儿子替换父亲
+// 2、如果父亲有值儿子没有 用父亲的
 export function mergeOptions(parent,child){
     const options = {}
     for(let key in parent){

@@ -28,11 +28,13 @@ function genChildren(el){
         return false
     }
 }
-function gen(node){
+function gen(node){ // 区分是元素还是文本
     if(node.type===1){
         // 元素标签
         return generate(node)
     }else{
+        // 文本逻辑不能用 _c 处理
+        // 有{{}} 普通文本  混合文本 {{aa}} aa {{bbb}}
         let text = node.text; // a {{name}} b{{age}} c
         let tokens = [];
         let match,index;
