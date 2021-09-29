@@ -158,6 +158,16 @@ function updateChildren(parent,oldChildren,newChildren) {
             // parent.appendChild(createElm(newChildren[i]))
         }
     }
+
+    // 老的比新的多 删除
+    if(oldStartIndex<oldEndIndex){
+        for(let i=oldStartIndex;i<=oldEndIndex;i++){
+            let child = oldChildren[i]
+            if(child!=undefined){
+                parent.removeChild(child.el) // 用父亲移除儿子
+            }
+        }
+    }
 }
 
 function createComponent(vnode) { // 初始化的作用
